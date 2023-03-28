@@ -1,6 +1,6 @@
 /*
 This class is used to connect to the postgres database.
-The information the user has entered into the GUI from ConnectionGUI class is sent here.
+The information the user has entered into the GUI from GuiControl class is sent here.
 Using the information it attempts to connect the database, if successful it sends a boolean true otherwise it sends false.
 This boolean is used to tell the user on the GUI whether the connection was successful.
 
@@ -21,10 +21,11 @@ public class DatabaseConnection {
     private String dbURL;
     private String dbUser;
     private String dbPwd;
+    private Connection postgresConnection;
 
     // This method attempts to connect to a postgres database and returns a boolean depending on the connection
     public boolean ConnectDB() {
-        Connection postgresConnection = null;
+        postgresConnection = null;
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -64,5 +65,13 @@ public class DatabaseConnection {
 
     public void setDbPwd(String dbPwd) {
         this.dbPwd = dbPwd;
+    }
+
+    public Connection getPostgresConnection() {
+        return postgresConnection;
+    }
+
+    public void setPostgresConnection(Connection postgresConnection) {
+        this.postgresConnection = postgresConnection;
     }
 }
