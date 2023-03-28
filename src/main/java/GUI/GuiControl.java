@@ -10,6 +10,8 @@ Date: 23/03/2023 -
 
 References:
 https://www.youtube.com/watch?v=NPvaP7WHryU
+https://mkyong.com/swing/java-swing-jfilechooser-example/
+https://www.youtube.com/watch?v=A6sA9KItwpY
  */
 
 package GUI;
@@ -17,15 +19,24 @@ package GUI;
 import DatabaseSQL.DatabaseConnection;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class GuiControl extends JFrame implements ActionListener {
+    // Frame and GUI panels
     private JFrame frame;
     private ConnectionGui connect;
     private FileGui file;
+    // Database connection
     private DatabaseConnection connection;
+
+    // File Chooser and file
+    private JFileChooser csvChooser;
+    private FileNameExtensionFilter csvFilter;
+    private File csvFile;
 
     public GuiControl() {
         frame = new JFrame("Java Data Explorer");
@@ -88,8 +99,32 @@ public class GuiControl extends JFrame implements ActionListener {
         }
 
         // Buttons for File GUI
-        else if (e.getSource() == file.getContinueButton()) {
+        // Select File Button when pressed will open up the file chooser menu where the user can select a csv file
+        // The continue button will switch to the Explorer GUI
+        // The exit button will quit the program
+        else if (e.getSource() == file.getSelectFileButton()) {
+            csvChooser = new JFileChooser();
+            csvChooser.setDialogTitle("Select a CSV file that contains the data to explore");
+            csvChooser.setAcceptAllFileFilterUsed(false);
 
+            csvFilter = new FileNameExtensionFilter("Select a .csv file", "csv");
+
+            csvChooser.addChoosableFileFilter(csvFilter);
+
+            int response = csvChooser.showOpenDialog(null);
+
+            if (response == JFileChooser.APPROVE_OPTION) {
+                csvFile = new File(csvChooser.getSelectedFile().getAbsolutePath());
+                System.out.println(csvFile);
+                file.setSelectedLabel(csvFile.toString());
+                file.setNoFileLabel("");
+            }
+        } else if (e.getSource() == file.getContinueButton()) {
+            if (csvFile != null) {
+                System.out.println("Success so far");
+            } else {
+                file.setNoFileLabel("No file selected, select a CSV file");
+            }
         } else if (e.getSource() == file.getExitButton()) {
             System.out.println("User has quit the program");
             System.exit(0);

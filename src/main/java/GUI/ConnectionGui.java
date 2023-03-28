@@ -3,7 +3,7 @@ This is the class where the Connection GUI is made.
 It is bound to a form that was used to customise this GUI.
 
 Author: Jaison Vargis
-Date: 25/03/2023 -
+Date: 26/03/2023 -
 
 References:
 https://www.youtube.com/watch?v=bandCz619c0

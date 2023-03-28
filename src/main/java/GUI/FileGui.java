@@ -3,7 +3,7 @@ This is the class where the File GUI is made.
 It is bound to a form that was used to customise this GUI.
 
 Author: Jaison Vargis
-Date: 25/03/2023 -
+Date: 26/03/2023 -
 
 References:
 https://www.youtube.com/watch?v=bandCz619c0
@@ -30,6 +30,7 @@ public class FileGui {
     private JLabel selectedLabel;
     private JButton continueButton;
     private JButton exitButton;
+    private JLabel noFileLabel;
 
     public FileGui() {}
 
@@ -42,8 +43,8 @@ public class FileGui {
     }
 
     // Getters and Setters
-    public void setSelectedLabel(JLabel selectedLabel) {
-        this.selectedLabel = selectedLabel;
+    public void setSelectedLabel(String selectedLabelString) {
+        selectedLabel.setText(selectedLabelString);
     }
 
     public JButton getSelectFileButton() {
@@ -52,5 +53,9 @@ public class FileGui {
 
     public void setSelectFileButton(JButton selectFileButton) {
         this.selectFileButton = selectFileButton;
+    }
+
+    public void setNoFileLabel(String noFileString) {
+        noFileLabel.setText(noFileString);
     }
 }
