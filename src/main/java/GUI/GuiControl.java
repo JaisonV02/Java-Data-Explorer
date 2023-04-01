@@ -24,6 +24,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.Objects;
 
 public class GuiControl extends JFrame implements ActionListener {
     // Frame and GUI panels
@@ -37,6 +38,9 @@ public class GuiControl extends JFrame implements ActionListener {
     private JFileChooser csvChooser;
     private FileNameExtensionFilter csvFilter;
     private File csvFile;
+
+    // Table name
+    private String tableName;
 
     public GuiControl() {
         frame = new JFrame("Java Data Explorer");
@@ -53,6 +57,7 @@ public class GuiControl extends JFrame implements ActionListener {
         // Extra frame actions
         frame.pack();
         frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
 
         // Set frame to visible
         frame.setVisible(true);
@@ -120,10 +125,24 @@ public class GuiControl extends JFrame implements ActionListener {
                 file.setNoFileLabel("");
             }
         } else if (e.getSource() == file.getContinueButton()) {
-            if (csvFile != null) {
+            // Check table name
+            boolean confirmTableName = file.checkTableName(file.getTfTableName().getText());
+
+            if (csvFile != null && confirmTableName) {
                 System.out.println("Success so far");
-            } else {
+            }
+            if (csvFile == null) {
                 file.setNoFileLabel("No file selected, select a CSV file");
+            }
+            if (Objects.equals(file.getTfTableName().getText(), "")) {
+                file.getTableNameMessage().setForeground(Color.RED);
+                file.setTableNameMessage("Must enter a table name");
+            } else if (confirmTableName) {
+                file.getTableNameMessage().setForeground(Color.GREEN);
+                file.setTableNameMessage("Valid table name");
+            } else if (!confirmTableName) {
+                file.getTableNameMessage().setForeground(Color.RED);
+                file.setTableNameMessage("Cannot start with number or contain spaces");
             }
         } else if (e.getSource() == file.getExitButton()) {
             System.out.println("User has quit the program");

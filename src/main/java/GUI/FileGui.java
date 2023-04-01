@@ -31,8 +31,23 @@ public class FileGui {
     private JButton continueButton;
     private JButton exitButton;
     private JLabel noFileLabel;
+    private JTextField tfTableName;
+    private JLabel tableNameLabel;
+    private JLabel tableNameMessage;
 
     public FileGui() {}
+
+    // Check if the table name the user entered is valid
+    public boolean checkTableName(String checkString) {
+        boolean spaces = checkString.matches(".*\\s.*");
+        boolean number = checkString.matches("\\d.*");
+
+        if (!spaces && !number) {
+            return true;
+        }
+
+        return false;
+    }
 
     public JButton getContinueButton() {
         return continueButton;
@@ -57,5 +72,17 @@ public class FileGui {
 
     public void setNoFileLabel(String noFileString) {
         noFileLabel.setText(noFileString);
+    }
+
+    public void setTableNameMessage(String tableMessage) {
+        this.tableNameMessage.setText(tableMessage);
+    }
+
+    public JLabel getTableNameMessage() {
+        return tableNameMessage;
+    }
+
+    public JTextField getTfTableName() {
+        return tfTableName;
     }
 }
