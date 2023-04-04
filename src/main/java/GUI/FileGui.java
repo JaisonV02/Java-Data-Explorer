@@ -35,8 +35,6 @@ public class FileGui {
     private JLabel tableNameLabel;
     private JLabel tableNameMessage;
 
-    public FileGui() {}
-
     // Check if the table name the user entered is valid
     public boolean checkTableName(String checkString) {
         boolean spaces = checkString.matches(".*\\s.*");
@@ -66,12 +64,12 @@ public class FileGui {
         return selectFileButton;
     }
 
-    public void setSelectFileButton(JButton selectFileButton) {
-        this.selectFileButton = selectFileButton;
-    }
-
     public void setNoFileLabel(String noFileString) {
         noFileLabel.setText(noFileString);
+    }
+
+    public JLabel getNoFileLabel() {
+        return noFileLabel;
     }
 
     public void setTableNameMessage(String tableMessage) {

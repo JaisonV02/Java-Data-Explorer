@@ -37,8 +37,6 @@ public class ConnectionGui {
     private JButton connectButton;
     private JButton exitButton;
 
-    ConnectionGui() {}
-
     // Getters and Setters
     // This method displays a message on the GUI for the user whether the connection to database was successful
     // If the connection is successful then it will move onto the next GUI
