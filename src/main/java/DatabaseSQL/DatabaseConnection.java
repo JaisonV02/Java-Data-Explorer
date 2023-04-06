@@ -5,10 +5,11 @@ Using the information it attempts to connect the database, if successful it send
 This boolean is used to tell the user on the GUI whether the connection was successful.
 
 Author: Jaison Vargis
-Date: 25/03/2023 -
+Date: 25/03/2023 - 06/04/2023
 
 References:
 https://www.tutorialspoint.com/postgresql/postgresql_java.htm
+- This website helped with the code to connect to a postgres database
  */
 
 package DatabaseSQL;
@@ -39,10 +40,7 @@ public class DatabaseConnection {
         }
     }
 
-    /*
-    Setters and Getters
-     */
-
+    // Setters and Getters
     public String getDbURL() {
         return dbURL;
     }

@@ -2,11 +2,11 @@
 This is the class where the Connection GUI is made.
 It is bound to a form that was used to customise this GUI.
 
-Author: Jaison Vargis
-Date: 26/03/2023 -
+There is a method in this class the sets the text for a label.
+This text tells the user whether the connection is successful or not.
 
-References:
-https://www.youtube.com/watch?v=bandCz619c0
+Author: Jaison Vargis
+Date: 26/03/2023 - 06/04/2023
  */
 
 package GUI;
@@ -37,7 +37,6 @@ public class ConnectionGui {
     private JButton connectButton;
     private JButton exitButton;
 
-    // Getters and Setters
     // This method displays a message on the GUI for the user whether the connection to database was successful
     // If the connection is successful then it will move onto the next GUI
     // Otherwise it will tell the user it was unsuccessful, and it will stay on the connection GUI
@@ -54,6 +53,7 @@ public class ConnectionGui {
         }
     }
 
+    // Getters and Setters
     public JTextField getTfURL() {
         return tfURL;
     }

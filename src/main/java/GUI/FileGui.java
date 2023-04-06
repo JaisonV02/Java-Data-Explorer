@@ -2,11 +2,11 @@
 This is the class where the File GUI is made.
 It is bound to a form that was used to customise this GUI.
 
-Author: Jaison Vargis
-Date: 26/03/2023 -
+This class has method that checks whether the table name is valid or not.
+This class has three methods that changes the text for different JLabels.
 
-References:
-https://www.youtube.com/watch?v=bandCz619c0
+Author: Jaison Vargis
+Date: 26/03/2023 - 06/04/2023
  */
 
 package GUI;
@@ -14,7 +14,7 @@ package GUI;
 import javax.swing.*;
 
 public class FileGui {
-    // File Panel
+    // File panel
     public JPanel filePanel;
 
     // Left side panel which is the name of the program 'Java Data Explorer'
@@ -47,6 +47,22 @@ public class FileGui {
         return false;
     }
 
+    // Set the text for the selectedLabel as the path for the file the user has selected
+    public void setSelectedLabel(String selectedLabelString) {
+        selectedLabel.setText(selectedLabelString);
+    }
+
+    // Set the text for noFileLabel for when the user has not selected a file
+    public void setNoFileLabel(String noFileString) {
+        noFileLabel.setText(noFileString);
+    }
+
+    // Set the text for the tableNameMessage label to tell the user whether the table name is valid or not
+    public void setTableNameMessage(String tableMessage) {
+        this.tableNameMessage.setText(tableMessage);
+    }
+
+    // Getters and Setters
     public JButton getContinueButton() {
         return continueButton;
     }
@@ -55,25 +71,12 @@ public class FileGui {
         return exitButton;
     }
 
-    // Getters and Setters
-    public void setSelectedLabel(String selectedLabelString) {
-        selectedLabel.setText(selectedLabelString);
-    }
-
     public JButton getSelectFileButton() {
         return selectFileButton;
     }
 
-    public void setNoFileLabel(String noFileString) {
-        noFileLabel.setText(noFileString);
-    }
-
     public JLabel getNoFileLabel() {
         return noFileLabel;
-    }
-
-    public void setTableNameMessage(String tableMessage) {
-        this.tableNameMessage.setText(tableMessage);
     }
 
     public JLabel getTableNameMessage() {
