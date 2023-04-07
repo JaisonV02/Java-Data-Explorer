@@ -114,6 +114,9 @@ Takes data from the database and displays it in the JTable based on the query th
 Drops the table given inside the query.
 This is usually done before the program is closed.
 
+### Icons used in GUIs
+All the icons used which are located in the resource folder are from: https://uxwing.com/
+
 ## Core Functionality
 
 - Connects to a database: This is done using the JDBC library, the url for the database, username and password.
