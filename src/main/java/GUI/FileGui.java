@@ -39,8 +39,9 @@ public class FileGui {
     public boolean checkTableName(String checkString) {
         boolean spaces = checkString.matches(".*\\s.*");
         boolean number = checkString.matches("\\d.*");
+        boolean empty = checkString.matches("");
 
-        if (!spaces && !number) {
+        if (!spaces && !number && !empty) {
             return true;
         }
 

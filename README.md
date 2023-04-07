@@ -1,4 +1,10 @@
 # Java-Data-Explorer
+Link to GitHub:
+https://github.com/JaisonV02/Java-Data-Explorer
+
+Link to video:
+https://youtu.be/4XxnHlwpQwc
+
 A program made by me for a java OOP project for college.
 This program connects to a database, takes a CSV file and copies data from that CSV file into the database.
 The program then allows you to query the data and the table will display the result of that query.
