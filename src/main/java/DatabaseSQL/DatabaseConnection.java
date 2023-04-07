@@ -5,7 +5,7 @@ Using the information it attempts to connect the database, if successful it send
 This boolean is used to tell the user on the GUI whether the connection was successful.
 
 Author: Jaison Vargis
-Date: 25/03/2023 - 06/04/2023
+Date: 25/03/2023 - 07/04/2023
 
 References:
 https://www.tutorialspoint.com/postgresql/postgresql_java.htm
@@ -41,24 +41,12 @@ public class DatabaseConnection {
     }
 
     // Setters and Getters
-    public String getDbURL() {
-        return dbURL;
-    }
-
     public void setDbURL(String dbURL) {
         this.dbURL = dbURL;
     }
 
-    public String getDbUser() {
-        return dbUser;
-    }
-
     public void setDbUser(String dbUser) {
         this.dbUser = dbUser;
-    }
-
-    public String getDbPwd() {
-        return dbPwd;
     }
 
     public void setDbPwd(String dbPwd) {
@@ -67,9 +55,5 @@ public class DatabaseConnection {
 
     public Connection getPostgresConnection() {
         return postgresConnection;
-    }
-
-    public void setPostgresConnection(Connection postgresConnection) {
-        this.postgresConnection = postgresConnection;
     }
 }

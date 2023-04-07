@@ -6,7 +6,7 @@ The toTable method queries the data from the postgres database and displays it i
 The dropTable method drops the table from the database before the program is closed.
 
 Author: Jaison Vargis
-Date: 01/04/2023 - 06/04/2023
+Date: 01/04/2023 - 07/04/2023
  */
 
 package DatabaseSQL;
@@ -122,12 +122,16 @@ public class DataControl {
             resultSet.close();
             prepSqlStatement.close();
             queryMessage.setText("");
+
+            // Show option pane dialogue
+            JOptionPane.showMessageDialog(null, "Table updated");
         } catch (Exception e) {
             e.printStackTrace();
 
             // Tell the user that the query failed
             queryMessage.setForeground(Color.RED);
             queryMessage.setText("Could not submit query, check syntax and or connection to database");
+            JOptionPane.showMessageDialog(null, "Failed to updated table");
         }
     }
 
